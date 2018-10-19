@@ -1,19 +1,22 @@
 name: charm-juju-lint
-summary: <Fill in summary here>
-maintainer: Stephen Mather <Stephen.Mather@alpha>
+summary: Juju model linter with configurable policy.
+maintainer: Stephen Mather <stephen.mather@canonical.com>
 description: |
-  <Multi-line description here>
+  Juju model linter with configurable policy.
 tags:
-  # Replace "misc" with one or more whitelisted tags from this list:
-  # https://jujucharms.com/docs/stable/authors-charm-metadata
-  - misc
+  - audits
+  - ops
+series:
+  - bionic
+  - xenial
+  - trusty
 subordinate: false
-provides:
-  provides-relation:
-    interface: interface-name
-requires:
-  requires-relation:
-    interface: interface-name
-peers:
-  peer-relation:
-    interface: interface-name
+# provides:
+#   provides-relation:
+#     interface: interface-name
+# requires:
+#   requires-relation:
+#     interface: interface-name
+# peers:
+#   peer-relation:
+#     interface: interface-name

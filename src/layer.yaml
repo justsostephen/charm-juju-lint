@@ -1,1 +1,3 @@
-includes: ["layer:basic", "layer:snap"]
+includes:
+  - layer:basic
+  - layer:snap

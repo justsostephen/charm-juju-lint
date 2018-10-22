@@ -1,4 +1,5 @@
 name: charm-juju-lint
+display-name: Juju Lint
 summary: Juju model linter with configurable policy.
 maintainer: Stephen Mather <stephen.mather@canonical.com>
 description: |

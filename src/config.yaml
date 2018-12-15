@@ -1,4 +1,31 @@
 options:
+  controller-endpoint:
+    type: string
+    default:
+    description: |
+      'A controller API endpoint. (Syntax: "<hostname>:<port>")'
+  controller-username:
+    type: string
+    default:
+    description: |
+      A controller user's username.
+  controller-password:
+    type: string
+    default:
+    description: |
+      The respective controller user's password.
+  controller-cacert:
+    type: string
+    default:
+    description: |
+      The controller CA certificate.
+  model-uuid:
+    type: string
+    default:
+    description: |
+      The model UUID.
+
+  # layer:apt options.
   install_sources:
     default: "ppa:juju-linters/ppa"
   install_keys:

@@ -3,7 +3,13 @@ display-name: Juju Lint
 summary: Juju model linter with configurable policy.
 maintainer: Stephen Mather <stephen.mather@canonical.com>
 description: |
-  Juju model linter with configurable policy.
+  "Juju model linter with configurable policy.
+  The following config options must be set:
+  * controller-endpoint
+  * controller-username
+  * controller-password
+  * controller-cacert
+  * model-uuid"
 tags:
   - audits
   - ops

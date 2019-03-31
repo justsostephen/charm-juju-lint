@@ -1,4 +1,34 @@
 options:
+  # Juju Lint options.
+  lint-config:
+    type: string
+    default: "/usr/share/juju-lint/contrib/canonical-openstack-rules.yaml"
+    description: |
+      Juju Lint rules file path.
+  lint-override:
+    type: string
+    default: ""
+    description: |
+      'Hash separated subordinate rule overrides. (Syntax:
+      "<name>:<location>#<name>:<location>")'
+  lint-loglevel:
+    type: string
+    default: "INFO"
+    description: |
+      'Logging level, either "CRITICAL", "ERROR", "WARNING", "INFO", "DEBUG", or
+      "NOTSET".'
+  lint-logfile:
+    type: string
+    default: ""
+    description: |
+      Log file path.
+  lint-frequency:
+    type: int
+    default: 30
+    description: |
+      Specifies how often Juju Lint is run, in minutes.
+
+  # Juju model connection options.
   controller-endpoint:
     type: string
     default:

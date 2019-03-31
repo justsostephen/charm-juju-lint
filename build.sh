@@ -1,1 +1,1 @@
-LAYER_PATH=layers INTERFACE_PATH=interfaces charm build --report src
+CHARM_LAYERS_DIR=layers CHARM_INTERFACES_DIR=interfaces CHARM_BUILD_DIR=../resources/builds charm build --report src

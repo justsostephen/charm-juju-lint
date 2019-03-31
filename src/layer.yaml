@@ -2,6 +2,12 @@ includes:
   - layer:basic
   - layer:apt
 options:
+  basic:
+    packages:
+      - python3-virtualenv
+        # Install "juju" Python package build dependencies.
+      - libssl-dev
+      - libffi-dev
   apt:
     packages:
       - juju-lint

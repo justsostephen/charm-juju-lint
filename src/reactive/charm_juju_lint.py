@@ -66,6 +66,18 @@ def deploy_scripts():
 
 
 @when("charm-juju-lint.installed", "config.changed")
+def verify_config():
+    config = hookenv.config()
+    required = ("controller-endpoint", "controller-username",
+                "controller-password", "controller-cacert", "model-uuid")
+    for option in required:
+        if not config[option]:
+            hookenv.status_set("active", "Set model connection config values")
+            return
+    hookenv.status_set("active", "Unit is ready")
+
+
+@when("charm-juju-lint.installed", "config.changed")
 def create_auto_lint_config():
     """Create JSON configuration file at
     "/var/lib/juju-lint/auto-lint-config.json" containing charm config options.

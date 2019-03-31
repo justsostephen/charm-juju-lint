@@ -25,11 +25,20 @@ from subprocess import (
     CalledProcessError,
     check_output,
 )
+from sys import exit
 
 from juju import loop
 from juju.model import Model
 
 VAR_LIB = "/var/lib/juju-lint"
+
+
+def verify_auto_lint_config(auto_lint_config):
+    required = ("controller-endpoint", "controller-username",
+                "controller-password", "controller-cacert", "model-uuid")
+    for option in required:
+        if not auto_lint_config[option]:
+            exit("Please set model connection config values.")
 
 
 async def get_juju_status(auto_lint_config):
@@ -67,6 +76,7 @@ def lint_juju(auto_lint_config):
 def main():
     with open(path.join(VAR_LIB, "auto-lint-config.json")) as fp:
         auto_lint_config = json.load(fp)
+    verify_auto_lint_config(auto_lint_config)
     juju_status = loop.run(get_juju_status(auto_lint_config))
     with open(path.join(VAR_LIB, "juju-status.json"), "w") as fp:
         fp.write(juju_status.to_json())

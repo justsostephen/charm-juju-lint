@@ -86,8 +86,12 @@ def create_auto_lint_config():
         json.dump(hookenv.config(), fp)
 
 
+@when("charm-juju-lint.installed", "config.changed")
 def create_crontab():
-    """Create a crontab at "/etc/cron.d/juju-lint" that runs auto_lint.py and
-    directs output to "/var/lib/juju-lint/lint-results.txt".
-    """
-    pass
+    """Create a crontab at "/etc/cron.d/juju-lint" that runs "auto_lint.py"."""
+    cron_job = "*/{} * * * * root {}\n".format(
+        hookenv.config()["lint-frequency"],
+        path.join(USR_LIB, "auto_lint.py")
+    )
+    with open("/etc/cron.d/juju-lint", "w") as fp:
+        fp.write(cron_job)

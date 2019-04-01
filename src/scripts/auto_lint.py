@@ -38,7 +38,7 @@ def verify_auto_lint_config(auto_lint_config):
                 "controller-password", "controller-cacert", "model-uuid")
     for option in required:
         if not auto_lint_config[option]:
-            exit("Please set model connection config values.")
+            exit("Juju Lint: Please set model connection config values.")
 
 
 async def get_juju_status(auto_lint_config):
